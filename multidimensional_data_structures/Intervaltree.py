@@ -49,15 +49,3 @@ class IntervalTree:
         if node.left and node.left.max >= interval.start:
             return self._search(node.left, interval)
         return self._search(node.right, interval)
-
-# Create an instance of the IntervalTree
-tree = IntervalTree()
-
-# Insert some intervals
-tree.insert(Interval(1, 3))
-tree.insert(Interval(2, 5))
-tree.insert(Interval(4, 7))
-tree.insert(Interval(6, 8))
-
-# Search for an interval
-tree.search(Interval(3, 6))
