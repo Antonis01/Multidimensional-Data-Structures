@@ -8,7 +8,7 @@ class Point:
         self.y = y
 
 
-# The function checks if point q1 lies online segment p1,r
+# This function checks if point q1 lies online segment p1,r
 # based on the 3 collinear points
 def on_segment(p1, q1, r):
     if max(p1.x, r.x) >= q1.x >= min(p1.x, r.x) and max(p1.y, r.y) >= q1.y >= min(p1.y, r.y):
@@ -91,7 +91,7 @@ for i in range(0, len(points) - 1, 2):
                                                                        int(points[j].x), int(points[j].y),
                                                                        int(points[j + 1].x), int(points[j + 1].y)))
 
-            # we make and show the plot for the lines that intersect 
+            # we make and show the plot for the lines that intersect
             plt.figure(figsize=(5, 5))
             plt.plot((int(points[i].x), int(points[i + 1].x)), (int(points[i].y), int(points[i + 1].y)), '.r--')
             plt.plot((int(points[j].x), int(points[j + 1].x)), (int(points[j].y), int(points[j + 1].y)), '.b--')
