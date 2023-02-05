@@ -1,13 +1,16 @@
+import LineSegIntersection
+
+
 def main():
     points = [(1, 3), (2, 4), (3, 5), (4, 7), (6, 8), (8, 9), (9, 10)]
-    from multidimensional_data_structures.Intervaltree import IntervalTree
-    from multidimensional_data_structures.Intervaltree import Interval
+    from Intervaltree import IntervalTree
+    from Intervaltree import Interval
 
     it = IntervalTree()
     for point in points:
         it.insert(Interval(*point))
 
-    from multidimensional_data_structures.Segment import SegmentTree
+    from Segment import SegmentTree
     st = SegmentTree(points)
 
     while True:
@@ -51,12 +54,13 @@ def main():
         elif choice == 3:
             # Option 3 code here
             print("Convex Hull")
-            from multidimensional_data_structures.ConvexHull import ConvexHull
+            from ConvexHull import ConvexHull
             hull = ConvexHull(points)
             result = hull.find_hull()
             print("Convex Hull:", result)
         elif choice == 4:
             print("You selected Option 4")
+            LineSegIntersection.run_lineSegInter()
         elif choice == 5:
             print("Exiting program...")
             break
