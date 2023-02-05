@@ -27,7 +27,7 @@ def main():
             print("You selected Option 1")
         elif choice == 2:
             # Option 2 code here
-            print("You selected Option 2")
+            print("\nYou selected Option 2")
             print("--------------------")
             print("You selected interval/segment tree:")
             print("1. Interval Tree Interval Query")
@@ -53,13 +53,13 @@ def main():
 
         elif choice == 3:
             # Option 3 code here
-            print("Convex Hull")
+            print("Convex Hull\n")
             from ConvexHull import ConvexHull
             hull = ConvexHull(points)
             result = hull.find_hull()
             print("Convex Hull:", result)
         elif choice == 4:
-            print("You selected Option 4")
+            print("Line segment Intersection\n")
             LineSegIntersection.run_lineSegInter()
         elif choice == 5:
             print("Exiting program...")
