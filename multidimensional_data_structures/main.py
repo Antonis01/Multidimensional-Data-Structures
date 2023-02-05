@@ -1,5 +1,5 @@
 import LineSegIntersection
-import time
+import timeit
 import rtree3d
 
 
@@ -8,17 +8,17 @@ def main():
     from Intervaltree import IntervalTree
     from Intervaltree import Interval
 
-    starttimer1 = time.time()
+    starttimer1 = timeit.default_timer()
     it = IntervalTree()
     for point in points:
         it.insert(Interval(*point))
-    endtimer1 = time.time()
+    endtimer1 = timeit.default_timer()
     timetaken1 = endtimer1 - starttimer1
 
-    starttimer2 = time.time()
+    starttimer2 = timeit.default_timer()
     from Segment import SegmentTree
     st = SegmentTree(points)
-    endtimer2 = time.time()
+    endtimer2 = timeit.default_timer()
     timetaken2 = endtimer2 - starttimer2
 
     while True:
@@ -53,9 +53,16 @@ def main():
             elif choice2 == 2:
                 print("You selected Insert SegmentTree")
                 print("Enter the segment:")
-                x = int(input("Enter x coordinate for Stabbing Query: "))
-                result = st.query(0, 0, st.n - 1, 0, x)
-                print("Max y value for x <=", x, "is:", result)
+                x = input("Enter x coordinate for Stabbing Query: ")
+                try:
+                    x = int(x)
+                    res = st.query(0, 0, st.n - 1, x)
+                    if res == 0:
+                        print("No points found")
+                    else:
+                        print("Maximum y:", res)
+                except ValueError:
+                    print("Invalid input. Please enter an integer.")
             elif choice2 == 3:
                 print ("You selected: Compare time for both")
                 print("time for interval tree:", timetaken1)
