@@ -72,11 +72,13 @@ with open('coordinates.csv', mode='r', encoding='utf-8-sig') as file:
     # p and q are the two points of a line
     # Insert the coordinates of each line
     for row in reader:
-        # Adds the columns to x and y of p and q
+        # Adds the columns to x and y of the Point class
+        # ,and then it passes them to the p and q variables
         # So now we have p.x,p.y and q.x,q.y
         p = Point(float(row[0]), float(row[1]))
         q = Point(float(row[2]), float(row[3]))
-        # Add those two points in an array
+        # Then we add those two points in an array to store them
+        # p is stored in even cells and q in odd cells
         points.append(p)
         points.append(q)
 
@@ -85,6 +87,10 @@ for i in range(0, len(points) - 1, 2):
     # we start from i + 2 in the second for loop because we don't want to check two times for every point
     # because the array is 1D
     for j in range(i + 2, len(points) - 1, 2):
+        # we have i, i+1, j and j+1 in a nested for loop because we want to check all the points with each other.
+        # Because we have a 1D array and for each line we have two cells we need to add 1 to take the whole line
+        # In the first loop the cursor i will have the vales 0 and 0+1 that will be the first line
+        # and cursor j will have the values 2 and 2+1, because in the second for loop we start from i+2
         if do_intersect(points[i], points[i + 1], points[j], points[j + 1]):
             print("Lines {},{}-{},{} and {},{}-{},{} intersect".format(int(points[i].x), int(points[i].y),
                                                                        int(points[i + 1].x), int(points[i + 1].y),
