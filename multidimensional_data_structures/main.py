@@ -1,9 +1,9 @@
 import LineSegIntersection
 import time
+import rtree3d
+
 
 def main():
-
-
     points = [(1, 3), (2, 4), (3, 5), (4, 7), (6, 8), (8, 9), (9, 10)]
     from Intervaltree import IntervalTree
     from Intervaltree import Interval
@@ -33,6 +33,8 @@ def main():
         if choice == 1:
             # Option 1 code here
             print("You selected Option 1")
+            rtree3d.run_3drtree()
+
         elif choice == 2:
             # Option 2 code here
             print("\nYou selected Option 2")
