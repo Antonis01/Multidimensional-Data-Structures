@@ -24,7 +24,7 @@ with open("ex1_object_coordinates.csv") as csvfile:
 def print_tree_contents(rtree_index):
     for item in rtree_index.intersection((-math.inf, -math.inf, -math.inf, math.inf, math.inf, math.inf), objects=True):
         x, y, t = item.bbox[0],item.bbox[1],item.bbox[2]
-        print("ID:",item.id," X:",x," Y:",y," T:",t)
+        print("ID:", item.id, " X:", x, " Y:", y, " T:", t)
 
 
 # Query for all points within a certain time range
@@ -33,8 +33,8 @@ def query_time_range(rtree_index, start_seconds, end_seconds):
     results = rtree_index.intersection((-math.inf, -math.inf, start_seconds, math.inf, math.inf, end_seconds), objects=True)
     # iterate over the results and print the id, x, y, and t values
     for item in results:
-        x, y, t = item.bbox[0],item.bbox[1],item.bbox[2]
-        print("ID:",item.id," X:",x," Y:",y," T:",t)
+        x, y, t = item.bbox[0], item.bbox[1], item.bbox[2]
+        print("ID:", item.id, " X:", x, " Y:", y, " T:", t)
 
 
 # Query for all points within a certain spatial area
@@ -44,7 +44,7 @@ def query_bounding_box(rtree_index, min_x, min_y, max_x, max_y):
     # iterate over the results and print the id, x, y, and t values
     for item in results:
         x, y, t = item.bbox[0],item.bbox[1],item.bbox[2]
-        print("ID:",item.id," X:",x," Y:",y," T:",t)
+        print("ID:", item.id, " X:", x, " Y:", y, " T:", t)
 
 
 # Query for all the points that are in a specific area and time range
@@ -53,8 +53,8 @@ def query_area_and_time_range(rtree_index, min_x, min_y, max_x, max_y, start_sec
     results = rtree_index.intersection((min_x, min_y, start_seconds, max_x, max_y, end_seconds), objects=True)
     # iterate over the results and print the id, x, y, and t values
     for item in results:
-        x, y, t = item.bbox[0],item.bbox[1],item.bbox[2]
-        print("ID:",item.id," X:",x," Y:",y," T:",t)
+        x, y, t = item.bbox[0], item.bbox[1], item.bbox[2]
+        print("ID:", item.id, " X:", x, " Y:", y, " T:",t )
 
 
 def visualize_data_3d(rtree_index):
