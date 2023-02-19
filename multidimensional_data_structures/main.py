@@ -1,3 +1,4 @@
+import LineSegInter3D
 import LineSegIntersection
 import timeit
 import rtree3d
@@ -84,8 +85,14 @@ def main():
             result = hull.find_hull()
             print("Convex Hull:", result)
         elif choice == 4:
-            print("Line segment Intersection\n")
-            LineSegIntersection.run_lineSegInter()
+            print("Line segment Intersection\n1) 2D\n2) 3D\n")
+            choice3 = int(input("Enter your choice: "))
+            if choice3 == 1:
+                LineSegIntersection.run_lineSegInter()
+            elif choice3 == 2:
+                LineSegInter3D.run_lineSegInter3D()
+            else:
+                print("Wrong Input")
         elif choice == 5:
             print("Exiting program...")
             break
